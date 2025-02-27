@@ -451,7 +451,6 @@ void insert_ready_order_in_minheap(MinHeap_orders *heap, OrderNode *order) {
         heap->size++;
         // Heapify verso l'alto
         while (i > 0 && heap->orders[i]->tick < heap->orders[(i - 1) / 2]->tick) {
-            //printf("#swappo diobon\n");
             OrderNode *temp = heap->orders[i];
             heap->orders[i] = heap->orders[(i - 1) / 2];
             heap->orders[(i - 1) / 2] = temp;
@@ -622,7 +621,7 @@ void load_courier(int courier_capacity, MinHeap_orders *ready_orders_heap) {
 // Sposta ordini da lista pending orders a minheap ordini pronti
 void move_order_to_minheap(OrderNode *order, MinHeap_orders *ready_orders_heap){
     if (order == NULL) {
-        //printf("#Errore: ordine nullo.\n");
+        //Errore: ordine nullo
         return;
     }
     // Rimuovi il nodo dalla lista pending_orders_list
